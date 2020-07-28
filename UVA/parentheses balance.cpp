@@ -1,13 +1,3 @@
-/*------------------------------------------------*/
-//Problem Setter: Miguel Revilla
-//Uva Problem No: 673
-//Problem Name  : Parentheses Balance
-//Type          : Ad hoc
-//Author        : Shipu Ahamed
-//University    : BUBT
-//E-mail        : shipuahamed01@gmail.com
-/*--------------------------------------------*/
-
 #include<cstdio>
 #include<cstring>
 #include<string>
