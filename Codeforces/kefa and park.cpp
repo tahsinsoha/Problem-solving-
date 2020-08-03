@@ -24,10 +24,13 @@ void dfs(int i)
     int sz = adj[i].size();
     for(int j = 0; j < sz; j++)
     {
+        cnt=par;
         int u = adj[i][j];
         if(v[u] == 0)
             dfs(u);
     }
+    cnt=par;
+
     if(mrr[i])
         cnt--;
 

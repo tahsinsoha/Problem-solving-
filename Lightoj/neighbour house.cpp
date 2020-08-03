@@ -11,13 +11,13 @@ int func(int i,int col)
     int q1=INT_MAX,q2=INT_MAX,q3=INT_MAX;
     if(col!=0)
         q1=arr[i][0]+func(i+1,0);
-          if(col!=1)
+    if(col!=1)
         q2=arr[i][1]+func(i+1,1);
-  if(col!=2)
+    if(col!=2)
         q3=arr[i][2]+func(i+1,2);
 
-   vis[i][col]=p;
-   return dp[i][col]=min(q1,min(q2,q3));
+    vis[i][col]=p;
+    return dp[i][col]=min(q1,min(q2,q3));
 
 }
 int main()
