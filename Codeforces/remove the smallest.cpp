@@ -3,57 +3,51 @@ using namespace std;
 long long arr[1000007];
 long long cs[1000007];
 long long ps[1000007];
-int n;
-string s1,s2;
-int rec(int l, int r, int l1, int r1 )
-{
 
-
-
-}
 int main()
 {
+    int t;
+    cin>>t;
 
-
-    cin>>s1;
-    cin>>s2;
-
-    n=s1.size();
-    int f=0;
-
-    if(n%2)
+    while(t--)
     {
 
-        for(int i=0; i<n; i++)
-        {
-            if(s1[i]!=s2[i])
-            {
+        int n;
+        cin>>n;
 
+        for(int i=1; i<=n; i++)
+        {
+            cin>>arr[i];
+
+
+        }
+        sort(arr+1,arr+1+n);
+        int f=0;
+
+        for(int i=2; i<=n; i++)
+        {
+            if(abs(arr[i]-arr[i-1])>1)
+            {
                 f=1;
                 break;
             }
+
+
         }
 
         if(f==1)
             cout<<"NO"<<endl;
         else
             cout<<"YES"<<endl;
+
     }
-
-
-    else
-    {
-
-        if(rec())
-        }
-
-
 
 
 
     return 0;
 
 }
+
 
 
 

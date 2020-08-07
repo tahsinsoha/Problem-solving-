@@ -17,23 +17,18 @@ void dfs(int i)
     par=cnt;
     if(cnt>m)
         return;
-    if(adj[i].size()==1 )
+    if(adj[i].size()==1 && i>1)
         ans++;
 
 
     int sz = adj[i].size();
     for(int j = 0; j < sz; j++)
     {
-        cnt=par;
         int u = adj[i][j];
         if(v[u] == 0)
             dfs(u);
+              cnt=par;
     }
-    cnt=par;
-
-    if(mrr[i])
-        cnt--;
-
 
 
 }
