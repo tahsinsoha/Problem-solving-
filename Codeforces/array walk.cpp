@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#define ll long long
 using namespace std;
 long long arr[1000007];
 long long cs[1000007];
@@ -16,86 +17,35 @@ int main()
         for(int i=1; i<=n; i++)
         {
             cin>>arr[i];
+            cs[i]=cs[i-1]+arr[i];
         }
 
-        int maxx=INT_MIN;
-        int sum=0;
-        int piv=-1;
-
-        for(int i=1; i<=k+1; i++)
+        long long sum=0, ans=0;
+        int cnt=0;
+        for(int i=1; i<=n; i++)
         {
+
             sum+=arr[i];
-            if(arr[i]>maxx)
+            if(cnt==k+1)
+                break;
+            cnt++;
+            if(i==1)
+                continue;
+
+            ll p = 0;
+
+            if(z)
             {
-                maxx=arr[i];
-                piv=i;
+                ll l = min(z, (k-i+2)/2);
+                ll r = min(z, (k-i+1)/2);
+                ll rem = max(0, k-i+1-2*z);
+                p = l*arr[i-1]+r*arr[i]+cs[i+rem]-cs[i];
+
             }
-
+            ans=max(ans,sum+p);
         }
-        int r=0,l=0;
+        cout<<ans<<endl;
 
-        if(piv+1<=k+1 && arr[piv+1]>=arr[piv-1])
-            piv=piv+1,r=1;
-        else
-            piv=piv-1,l=1;
-
-        int sum2=0;
-
-        //cout<<arr[piv]<<endl;
-        // cout<<piv<<endl;
-        if(r==1)
-        {
-            for(int i=1; i<=piv; i++)
-            {
-                sum2+=arr[i];
-            }
-            int p =min(z*2,(k-(piv-1)));
-
-            int baki= k-((piv-1)+p);
-
-            p=p/2;
-            //  cout<<sum2<<endl;
-            // cout<<p<<endl;
-            int now;
-            if((p)%2==1)
-                sum2+=arr[piv]*p+arr[piv-1]*p,now=piv-1;
-            else
-                sum2+=arr[piv]*p+arr[piv-1]*p+arr[piv-1],now=piv;
-
-            //cout<<sum2<<endl;
-
-            for(int i=now+1; i<=baki; i++)
-                sum2+=arr[i];
-        }
-
-        else
-        {
-
-            for( int i=1; i<=piv; i++)
-            {
-                sum2+=arr[i];
-            }
-            int p =min(z*2,(k-(piv-1)));
-            int baki= k-((piv-1)+p);
-
-            p=p/2;
-            int now;
-
-            if((p)%2==1)
-                sum2+=arr[piv]*p+arr[piv+1]*p, now=piv+1;
-            else
-                sum2+=arr[piv]*p+arr[piv-1]*p+arr[piv+1],now=piv;
-
-            for(int i=now+1; i<=baki; i++)
-                sum2+=arr[i];
-
-
-
-        }
-
-        //cout<<sum<<" "<<sum2<<endl;
-
-        cout<<max(sum,sum2)<<endl;
 
     }
 

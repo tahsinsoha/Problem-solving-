@@ -27,7 +27,7 @@ void dfs(int i)
         int u = adj[i][j];
         if(v[u] == 0)
             dfs(u);
-              cnt=par;
+        cnt=par;
     }
 
 
