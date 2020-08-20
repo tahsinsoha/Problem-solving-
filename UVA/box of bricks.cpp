@@ -10,7 +10,10 @@ int main()
         scanf("%d",&n);
         sum=0;
         ans=0;
-        if(n==0){break;}
+        if(n==0)
+        {
+            break;
+        }
         for(i=0; i<n; i++)
         {
             scanf("%d",&h[i]);
