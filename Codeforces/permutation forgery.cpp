@@ -11,13 +11,17 @@ int main()
     while(t--)
     {
 
-        long long n;
-        cin>>n;
+     int n;
+     cin>>n;
 
-        if(n>14 &&  (n%14>=1 && n%14<=6))
-            cout<<"YES"<<endl;
-        else
-            cout<<"NO"<<endl;
+     for(int i=1;i<=n;i++)
+        cin>>arr[i];
+
+    for(int i=n;i>=1;i--)
+        cout<<arr[i]<<" ";
+    cout<<endl;
+
+
 
     }
 
